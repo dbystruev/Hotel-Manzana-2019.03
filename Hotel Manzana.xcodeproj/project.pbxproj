@@ -14,6 +14,7 @@
 		6904DF7C2229A31B007A84AC /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904DF7B2229A31B007A84AC /* Registration.swift */; };
 		6904DF7E2229A449007A84AC /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904DF7D2229A449007A84AC /* RoomType.swift */; };
 		6904DF802229A601007A84AC /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904DF7F2229A601007A84AC /* RegistrationTableViewController.swift */; };
+		69359CFB222EED4F00B73176 /* RoomSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69359CFA222EED4F00B73176 /* RoomSelectionTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6904DF7B2229A31B007A84AC /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		6904DF7D2229A449007A84AC /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		6904DF7F2229A601007A84AC /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
+		69359CFA222EED4F00B73176 /* RoomSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				6904DF7F2229A601007A84AC /* RegistrationTableViewController.swift */,
+				69359CFA222EED4F00B73176 /* RoomSelectionTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6904DF7C2229A31B007A84AC /* Registration.swift in Sources */,
+				69359CFB222EED4F00B73176 /* RoomSelectionTableViewController.swift in Sources */,
 				6904DF692229A23C007A84AC /* AppDelegate.swift in Sources */,
 				6904DF802229A601007A84AC /* RegistrationTableViewController.swift in Sources */,
 				6904DF7E2229A449007A84AC /* RoomType.swift in Sources */,

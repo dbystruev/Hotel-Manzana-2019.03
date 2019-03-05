@@ -22,7 +22,8 @@ class RegistrationTableViewController: UITableViewController {
     @IBOutlet weak var numberOfAdultsStepper: UIStepper!
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var numberOfChildrenStepper: UIStepper!
-    
+    @IBOutlet weak var wifiSwitch: UISwitch!
+    @IBOutlet weak var roomTypeLabel: UILabel!
     
     // MARK: - ... Properties
     let checkInLabelIndexPath = IndexPath(row: 0, section: 1)
@@ -42,6 +43,12 @@ class RegistrationTableViewController: UITableViewController {
         }
     }
     
+    var roomType: RoomType? {
+        didSet {
+            roomTypeLabel.text = roomType?.name
+        }
+    }
+    
     // MARK: - ... UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +59,14 @@ class RegistrationTableViewController: UITableViewController {
         
         updateDateViews()
         updateNumberOfGuests()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let roomType = roomType else { return }
+        guard segue.identifier == "RoomSelectionSegue" else { return }
+        
+        let controller = segue.destination as! RoomSelectionTableViewController
+        controller.selectedRoomType = roomType
     }
     
     // MARK: - ... Methods
@@ -79,6 +94,8 @@ class RegistrationTableViewController: UITableViewController {
         let checkOutDate = checkOutDatePicker.date
         let numberOfAdults = Int(numberOfAdultsStepper.value)
         let numberOfChildren = Int(numberOfChildrenStepper.value)
+        let wifi = wifiSwitch.isOn
+        guard let roomType = roomType else { return }
         
         let registration = Registration(
             firstName: firstName,
@@ -87,7 +104,9 @@ class RegistrationTableViewController: UITableViewController {
             checkInDate: checkInDate,
             checkOutDate: checkOutDate,
             numberOfAdults: numberOfAdults,
-            numberOfChildren: numberOfChildren
+            numberOfChildren: numberOfChildren,
+            wifi: wifi,
+            roomType: roomType
         )
         
         print(#function, registration)
@@ -99,6 +118,13 @@ class RegistrationTableViewController: UITableViewController {
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         updateNumberOfGuests()
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        guard segue.identifier == "SaveRoomSegue" else { return }
+        
+        let controller = segue.source as! RoomSelectionTableViewController
+        roomType = controller.selectedRoomType
     }
 }
 
